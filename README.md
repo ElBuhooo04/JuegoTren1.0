@@ -37,9 +37,13 @@ Tecla 3: Observar a la niña sola o al muchacho.
 (Ambas opciones conducen al mismo evento, pero modifican el diálogo interno al igual que las decisiones que se llegue a tomar Layla).
 
 ## 🚀 Instalación
-1. Descarga el archivo del juego.
-2. Extrae la carpeta.
-3. Ejecuta el archivo principal (.exe o .app).
+
+PARA PODER CORRER EL AVANCE DEL JUEGO APROPIADAMENTE ES NECESARIO INSTALAR EL PROGRAMA RENPY
+
+1. Instala la ultima version de RenPy: https://www.renpy.org/latest.html 
+2. Descarga el archivo del juego.
+3. Extrae la carpeta.
+4. Ejecuta el archivo principal (.exe o .app).
 
 ## 📸 Capturas
 ![tren 1](https://github.com/user-attachments/assets/17d8a0b8-ae89-4e50-b0a6-20376ad01cdb)
