@@ -1,10 +1,8 @@
 # JuegoTren1.0
-# 🎮 Nombre del Juego
+# 🎮 Nombre del Juego: El Ultimo Pasajero
 Novela visual
-El ultimo pasajero
 
 ## 🧩 Descripción
-Breve resumen del juego, su historia o su objetivo:
 
 El Tren es una experiencia narrativa de misterio psicológico ambientada en un viaje que parece ordinario… hasta que no lo es. El jugador toma el papel de Layla, una joven que llega apresurada a una estación sin recordar exactamente por qué debe tomar ese tren. Desde el inicio, todo se siente ligeramente fuera de lugar: las voces, las miradas, los colores, y especialmente el enigmático conductor Sirius, quien parece saber más de lo que dice.
 
@@ -47,15 +45,15 @@ Tecla 3: Observar a la niña sola o al muchacho.
 ![tren 1](https://github.com/user-attachments/assets/17d8a0b8-ae89-4e50-b0a6-20376ad01cdb)
 
 
-
 ## 👥 Equipo de desarrollo
-- Bruno Ruiz Ramón
-- Daniela Marqués Morale
+- Bruno Ruiz Ramón 2970198
+- Daniela Marqués Morales 2982246
+- Hannah Valeria Manzanares Gallardo 3078796
+
 
 ## ⚙ Tecnologías
 - Motor: RenPy
-- Herramientas:
 
 ## 📜 Licencia
-Licencia usada (por ejemplo: MIT, GPL, Creative Commons)
+Licencia usada (Creative Commons)
 Juego de novela visual
