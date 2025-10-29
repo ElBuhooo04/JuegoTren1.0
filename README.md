@@ -44,7 +44,8 @@ Tecla 3: Observar a la niña sola o al muchacho.
 3. Ejecuta el archivo principal (.exe o .app).
 
 ## 📸 Capturas
-![Texto alternativo](https://ruta-de-tu-imagen.com/imagen.png](https://imgur.com/a/qLuDsS9 )
+![tren 1](https://github.com/user-attachments/assets/17d8a0b8-ae89-4e50-b0a6-20376ad01cdb)
+
 
 
 ## 👥 Equipo de desarrollo
