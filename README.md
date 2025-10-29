@@ -44,22 +44,14 @@ Tecla 3: Observar a la niña sola o al muchacho.
 3. Ejecuta el archivo principal (.exe o .app).
 
 ## 📸 Capturas
-![Gameplay](ruta/a/tu/imagen.png)
 
 ## 👥 Equipo de desarrollo
-- Nombre – Rol
+- Bruno Ruiz Ramón
+- Daniela Marqués Morale
 
 ## ⚙ Tecnologías
-- Motor:
-- Lenguaje:
+- Motor: RenPy
 - Herramientas:
-
-## 🐛 Errores conocidos
-- Error 1
-- Error 2
-
-## 🧭 Futuras actualizaciones
-- Característica nueva
 
 ## 📜 Licencia
 Licencia usada (por ejemplo: MIT, GPL, Creative Commons)
