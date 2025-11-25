@@ -5,6 +5,8 @@ define m = Character("Mujer molesta", image="Layla", color="#FFFFFF")
 define u = Character("???", image="Layla", color="#FFFFFF")
 define uu = Character("???", color="#FFFFFF")
 define c = Character("Celia", image="Layla", color="#FFFFFF")
+define t = Character("Mathias", image="Layla", color="#FFFFFF")
+define a = Character("Arnold", image="Layla", color="#FFFFFF")
 
 
 # ==========================IMAGES==========================
@@ -17,6 +19,7 @@ init:
     image Negro = "images/bgs/negro.png"
     image CorredorNoche = "images/bgs/Corredor noche.PNG"
     image CorredorMorning = "images/bgs/Corredor manana.PNG"
+    image bg = "images/bgs/Corredor noche.PNG"
 
     image side Layla = "Side Layla Seria.PNG"
     image side Layla Seria = "Side Layla Seria.PNG"
@@ -38,6 +41,22 @@ init:
     image Celia Risa = "images/Celia/celia ojoscerradosbocaabierta.PNG"
     image Celia Seria = "images/Celia/Celia seria.PNG"
     image Celia Feliz = "images/Celia/Celia feliz.PNG"
+
+    image Mathias Normal = "images/Mathias/Mathias Normal.PNG"
+    image Mathias CerradoSerio = "images/Mathias/Mathias ojoscerradosserio.PNG"
+    image Mathias Sonrisa = "images/Mathias/Mathias sonrisa.PNG"
+    image Mathias OjoCerrados = "images/Mathias/Mathias ojoscerrados.PNG"
+
+    image Nadia Normal = "images/Nadia/Nadia Normal.PNG"
+
+init:
+    transform my_shake:
+        linear 0.1 xoffset -2 yoffset 2 
+        linear 0.1 xoffset 3 yoffset -3 
+        linear 0.1 xoffset 2 yoffset -2
+        linear 0.1 xoffset -3 yoffset 3
+        linear 0.1 xoffset 0 yoffset 0
+        repeat
 
 
 # ==========================OPCIONES==========================
@@ -111,7 +130,7 @@ label start:
 
     l "(Me pongo en la fila a esperar mi turno.)"
 
-    show Sirius Normal
+    show Sirius Normal with dissolve
 
     u "Su boleto por favor."
 
@@ -145,7 +164,7 @@ label start:
 
     l "Gracias, con permiso."
 
-    hide Sirius
+    hide Sirius with dissolve
 
     l "(El conductor parece una persona muy amable, incluso minutos antes de que me atendiera estuvo hablando con una mujer que parecía molesta y consiguió calmarla.)"
 
@@ -215,13 +234,13 @@ label op1A:
 
     play sound "audio/sfx/mujer enojada final.mp3"
 
-    show Celia Disconforme
+    show Celia Disconforme with dissolve
 
     m "Necesitas algo?"
 
     l SeriaSonrojo "(Que incomodo, parece que me vio mirarla. Niego con la cabeza y me volteo por mi propia ventana.)"
 
-    hide Celia Disconforme
+    hide Celia Disconforme with dissolve
 
     jump op1
 
@@ -229,9 +248,13 @@ label op1B:
     $ checked_op1B = True
     l Seria "(Del otro lado del pasillo hay un hombre leyendo un libro.)"
 
+    show Mathias Normal with dissolve
+
     play sound "audio/sfx/paginas pasando final.mp3"
 
     l "(Parece muy concentrado y esta totalmente ajeno a que yo lo vea, no parece importarle otra cosa que no sea su libro.)"
+
+    hide Mathias with dissolve
 
     stop sound
 
@@ -240,11 +263,15 @@ label op1B:
 label op1C: 
     $ checked_op1C = True
 
+    show Nadia Normal with dissolve
+
     l Seria "(La niña a la que le hablé hace un rato, está en su lugar jugando con lo que parece ser una muñeca.)"
 
     l "(Parece ser muy retraída y tímida. Está concentrada en su juguete y tampoco hace mucho ruido.)"
 
     l "(Por un segundo me mira y me siento incómoda.)"
+
+    hide Nadia with dissolve
 
     jump op1
 
@@ -347,7 +374,7 @@ label op1F:
 
     l "(Me quedo parada en la puerta, sin atreverme a bajar, sigo sin tener un buen presentimiento.)"
 
-    show Sirius FelizOjosCerrados
+    show Sirius FelizOjosCerrados with dissolve
 
     s "Bienvenida al verdadero viaje."
 
@@ -397,7 +424,7 @@ label op1F:
 
     play sound "audio/sfx/mujer enojada final.mp3"
 
-    show Celia Enojada 
+    show Celia Enojada with dissolve
 
     m "Le hablas a toda la gente así, ¿sin respeto?"
 
@@ -454,15 +481,13 @@ label op1F:
     label op2:
         menu:
             "Confrontar con Miedo":
-                $ Bad += 2
+                $ Bad += 1
                 jump op2A
             "Callar":
-                $ Neutral += 2
-                $ Bad += 1
+                $ Neutral += 1
                 jump op2B
             "Confrontar con Firmeza":
-                $ Good += 2
-                $ Neutral += 1
+                $ Good += 1
                 jump op2C
 
 label op2A:
@@ -525,15 +550,13 @@ label OP2CONTI:
     label op3:
         menu: 
             "Perdonar.":
-                $ Good += 2
-                $ Neutral += 1
+                $ Good += 1
                 jump op3A
             "Indiferencia.":
-                $ Neutral += 2
-                $ Bad += 1
+                $ Neutral += 1
                 jump op3B
             "Rencor.":
-                $ Bad += 2
+                $ Bad += 1
                 jump op3C
 
 label op3A:
@@ -543,7 +566,7 @@ label op3A:
 
     l "(Celia me observa con repulsión, pero la veo luego respirar… me mira con molestia.)"
 
-    hide Celia
+    hide Celia with dissolve
 
     l "(Y luego frente a mis ojos desaparece.)"
 
@@ -577,7 +600,7 @@ label op3C:
 
     l "(Celia para mi sorpresa, sonríe, satisfecha, como si hubiera ganado,-)"
 
-    hide Celia 
+    hide Celia with dissolve
 
     l "(-antes de  terminar desapareciendo frente a mi.)"
 
@@ -591,7 +614,7 @@ label OP3CONTI:
 
     l "(Me tambaleo. Y antes de darme cuenta… pierdo la conciencia.)"
 
-    hide Celia
+    hide Celia with dissolve
 
     stop music
 
@@ -625,9 +648,17 @@ label OP3CONTI:
 
     l "(Veo que los otros pasajeros están en sus asuntos.)"
 
+    show Mathias Normal at right with dissolve
+
     l "(El intelectual sigue leyendo un libro...)"
 
+    show Nadia Normal at left with dissolve
+
     l "(La niña está mirando a la ventana...)"
+
+    hide Nadia with dissolve
+
+    hide Mathias with dissolve
 
     l "???"
 
@@ -643,11 +674,11 @@ label OP3CONTI:
 
     l "(Sin saber por qué, decidió tocarle la puerta.)"
 
-    show Sirius Feliz 
+    show Sirius Feliz with dissolve
 
     s "Hola Layla! ¿Necesitas algo?"
 
-    if Good >= 4:
+    if Good >= 2:
         jump BONUS1
     else:
         jump NOBONUS1
@@ -711,7 +742,7 @@ label CONTI1:
 
     l "(Me despido de Sirius y regreso a mi compartimento.)"
 
-    hide Sirius
+    hide Sirius with dissolve
 
     l "(Sigue pareciendo extraño que ya no esté esa mujer... pero trato de ignorar el sentimiento.)"
 
@@ -735,7 +766,7 @@ label CONTI1:
 
     scene Vagon 1 noche with dissolve
 
-    play music "ES_Valse triste Nicoise - Magnus Ludvigsson.mp3" fadein 1.5 loop
+    play music "audio/music/ES_Valse triste Nicoise - Magnus Ludvigsson.mp3" fadein 1.5 loop
 
     l "(Al despertar el tren está vacío de nuevo. Y antes de que suenen las indicaciones ya sé que es lo que me espera.)"
 
@@ -751,9 +782,349 @@ label CONTI1:
 
     l Seria "(Yo no soy la clase de persona que sueña la misma cosa 2 veces, Y el anterior fue extremadamente agotador.)"
 
-    l "(Sin embargo… la experiencia de ser empujada nuevamente de un tren prefiero saltarla...)"
+    l "(Sin embargo... la experiencia de ser empujada nuevamente de un tren prefiero saltarla...)"
 
     l "(Así que terminó bajando por voluntad.)"
 
+    scene CorredorNoche with dissolve
+
+    play music "audio/music/ES_Going Back - John Barzetti.mp3" fadein 1.5 loop
+
+    l "(La puerta del tren se abre sola. Ya ni siquiera me sorprende.)"
+
+    play sound "audio/sfx/Sonido de pasos.mp3" fadein 1.5 loop
+
+    l "(Bajo... Aunque no quiero.)"
+
+    l "(Me pregunto qué es lo que me está esperando aquí.)"
+
+    l "(El aire de esta estación se siente distinto.)"
+
+    l "(Más denso. Más caliente.)"
+
+    l "(Como si hubiera un incendio invisible bajo el suelo.)"
+
+    l "Genial... otro sueño raro."
+
+    l "(Camino por el andén. Las losas están agrietadas, como si algo las hubiera golpeado muchas veces.)"
+
+    l "(El cielo sobre mí es de un azul apagado que parece suplicar por una segunda oportunidad de amanecer.)"
+
+    stop sound
+
+    show Mathias Normal at right with dissolve
+
+    l Sorpresa "(Entonces lo veo. Un hombre parado al final del pasillo.)"
+
+    l "(Me doy cuenta que es el intelectual del tren. Parece más intimidante ahora.)"
+
+    l "(No es nadie que recuerde de mi vida. Y no entiendo porque me da esta sensación de molestia en el pecho.)"
+
+    l "¿Por qué... siento esto?"
+
+    show Mathias Normal at center with move
+
+    l Seria "(Doy un paso. El hombre inclina la cabeza hacia un lado, como si supiera que estoy ahí.)"
+
+    u "Tarde otra vez."
+
+    l "(Mi respiración se corta. Siento algo de deja vu.)"
+
+    l "(Ese tono autoritario.)"
+
+    l "(Ese desprecio escondido.)"
+
+    l "(Ese aliento que siempre hacía temblar mis rodillas.)"
+
+    l "N-no sé quién es usted."
+
+    show Mathias CerradoSerio
+
+    t "Mi nombre es Mathias, Y aunque no me conoces… aquí estás."
+
+    t "Como siempre. Llegando tarde. Sin prepararte."
+
+    l "(Mis manos se cierran en puños sin que yo lo note.)"
+
+    l Enojo "(Me intimida su actitud de buscar mis fallas, y de clavar su mirada en mí como si fuese insignificante.)"
+
+    show Mathias Sonrisa 
+
+    t "¿Te vas a quedar ahí parada como una inútil?"
+
+    l "(Mi garganta arde.)"
+
+    l "...¿Qué dijo?"
+
+    show Mathias OjoCerrados
+
+    t "Lo que eres. Un caso perdido."
+
+    label op4:
+        menu: 
+            "Explotar":
+                $ Bad += 1
+                jump op4A
+            "Evitarlo":
+                $ Neutral += 1
+                jump op4B
+            "Mantengo la calma":
+                $ Good += 1
+                jump op4C
+
+label op4A:
+    l "¡No me hable así! ¡Usted no me conoce!"
+
+    show Mathias Sonrisa
+
+    t "Claro que sí. Siempre fuiste sencilla de leer."
+
+    t "Llorona, insegura, débil."
+
+    jump op4CONTI
+
+label op4B:
+    l Seria "(No respondo.)"
+
+    l "(No puedo.)"
+
+    show Mathias Sonrisa
+
+    t " ¿Nada? Típico. Te callas y esperas a que alguien te salve."
+
+    jump op4CONTI
+
+label op4C:
+    l Seria "(Mantengo la calma.)"
+
+    l "(Levantó la cabeza.)"
+    
+    l "No sé quién es usted, pero no voy a dejar que me humille."
+
+    show Mathias Sonrisa
+
+    t "¿Ah, no? Hace un minuto estabas temblando."
+
+    l "(El hombre da un paso hacia mí.)"
+
+    l "(Luego otro. Su presencia pesa.)"
+
+    l "(Pesa como cuando tenía ocho años y estaba sola frente a un adulto que disfrutaba verme fallar.)"
+
+    jump op4CONTI
+
+label op4CONTI: 
+    show Mathias Normal 
+
+    t "Dime, Layla... ¿Cuántas veces te lo han dicho? Esforzarte no sirve de nada si eres mediocre."
+
+    l "(Mi corazón retumba en mi pecho.)"
+
+    l Triste "D-Deje de decir eso..."
+
+    t "¿Por qué? ¿Acaso no es verdad?"
+
+    l "(Algo dentro de mí se quiebra.)"
+
+    l "(No tengo miedo. Es más ese sentimiento de ira que siempre tengo.)"
+
+    l "(La que nunca tengo que mostrar porque siempre tengo que ser amable.)"
+
+    l "(Esta persona no debería de afectarme pero me hace recordar cosas que pensé que ya tenía enterradas.)"
+
+    l "(Las luces explotan en un destello breve.)"
+
+    l "(Mi respiración se acelera.)"
+
+    label op5: 
+        menu:
+            "Perdonar":
+                $ Good += 1
+                jump op5A
+            "Indiferencia":
+                $ Neutral += 1
+                jump op5B
+            "Rencor":
+                $ Bad += 1
+                jump op5C
+
+label op5A:
+    hide Mathias
+
+    scene Negro with dissolve
+
+    l "(Cierro los ojos, tragándome el orgullo y el rencor.)"
+
+    l Triste "Ya no voy a vivir con miedo a alguien como usted. Se acabó."
+
+    scene CorredorNoche
+
+    show Mathias Normal
+
+    l "(Cuando abro los ojos, el hombre me mira con una expresión que no entiendo.)"
+
+    l "(Confusión. Molestia.)"
+
+    l "(Luego su figura se deshace en humo oscuro.)"
+
+    jump op5CONTI
+
+label op5B: 
+    l Enojo "No me importa. Nada de lo que tenga que decir me importa."
+
+    l "(Me doy la vuelta. Camino sin verlo más.)"
+
+    l "(Evadiendo la situación como lo he hecho siempre.)"
+
+    l "(El hombre queda rígido, como una sombra sin dueño.)"
+
+    jump op5CONTI
+
+label op5C: 
+    l Enojo "(Mi voz se rompe. Pero no en tristeza. En furia.)"
+
+    with vpunch
+
+    l "¡Lo odio! ¡Odio a los hombres como usted!"
+
+    show Mathias Sonrisa
+
+    l "(El hombre sonríe. Una sonrisa torcida.)"
+
+    l "(De esas que parecen condescendientes y solo molestan.)"
+
+    t "Al parecer nunca aprendes y si eres tan mediocre como pensaba."
+
+    scene bg at my_shake
+
+    l Sorpresa "(El suelo vibra como si algo respondiera a mis emociones.)"
+
+    jump op5CONTI
+
+label op5CONTI:
+
+    l Seria "(Sin poder hacer otra cosa, siento como mis ojos se ponen pesados, y pierdo el conocimiento.)"
+
+    stop music
+
+    hide Mathias 
+    
+    scene Negro
+
+    "...."
+
+    "...."
+
+    uu "Si no puedes hacer esto, Layla... ¿Para qué estás aquí?"
+
+    uu "No entiendo porque prefiere a todos mis compañeros."
+
+    uu "Ellos no muestran mediocridad, si realmente te interesara harías las cosas mejor."
+
+    scene Vagon 1 noche with dissolve
+
+    play music "audio/music/ES_Valse triste Nicoise - Magnus Ludvigsson.mp3" fadein 1.5 loop
+
+    l "(Me despierto como recién salida de una pesadilla.)"
+
+    l "(Siento los ojos pesados y me siento incluso más agotada que la última vez.)"
+
+    with vpunch
+
+    l Sorpresa "(Siento que me tocan el hombro y me sobresalto.)"
+
+    show Sirius Preocupacion with dissolve
+
+    l "(Veo a Sirius parado al lado de mi, mirándome con sorpresa.)"
+
+    s "Lo siento, estaba revisando a los pasajeros, y no te veías muy bien."
+
+    l Seria "No es nada, solo tuve una pesadilla. ¿No deberías estar conduciendo?"
+
+    show Sirius Normal 
+
+    s "Acaba de bajarse un pasajero."
+
+    if Good >= 3:
+        jump GOODEND
+    else: 
+        jump NOGOOD
+
+label GOODEND: 
+    l "Miro a mi alrededor y me doy cuenta que el intelectual ya no va sentado al lado de la niña."
+
+    s "Iba de muy mal humor a decir verdad, parece que no tuvo la respuesta que quería."
+
+    l Sorpresa "A que te refieres?"
+
+    show Sirius Feliz 
+
+    l Seria "(Sirius solo me sonrio como si no fuera la gran cosa.)"
+
+    s "Nada que deba preocuparte."
+
+    jump FINALEND
+
+label NOGOOD: 
+    l "Miro a mi alrededor y me doy cuenta que el intelectual ya no va sentado al lado de la niña."
+
+    s "Iba de excelente humor, dijo que le encantaba tener la razon."
+
+    l Sorpresa "A que te refieres?"
+
+    l "(Sirius solo me mira con un poco de desaprobación.)"
+
+    s "No te preocupes, solo hablo a la nada, pero si me lo permites, considero que deberias de cuidar un poco más tus asuntos."
+
+    jump FINALEND
+
+label FINALEND: 
+    show Sirius FelizOjosCerrados
+
+    s " Bueno, me despido, tengo que volver a manejar este tren."
+
+    hide Sirius with dissolve 
+
+    l Seria "(Sirius se va y me quedo pensando en las cosas mirando a la ventana. Ya es muy tarde de todos modos.)"
+
+    u "Disculpa..."
+
+    l "(El pasajero sentado enfrente de mi habla, y recuerdo desde hace un tiempo ha estado queriendo hablarme.)"
+
+    l "¿Pasa algo?"
+
+    u "No se si me recuerdas... íbamos juntos a la escuela,"
+
+    a "Me llamo Arnold."
+
+    l "Lo miro de arriba a abajo, a decir verdad si se me hacía bastante familiar."
+
+    l "A decir verdad no recuerdo mucho, pero igual pensaba que eras bastante familiar."
+
+    a "Es muy curioso volverte a encontrar justo aquí."
+
+    a "Este viaje esta siendo muy raro, he estado teniendo unos sueños extraños y..."
+
+    l "(Nuestra platica se ve detenida por el ruido del altavoz.)"
+
+    s "{color=#818589}{i}Lamentamos las demoras, seguiremos avanzando.{/i}{/color}"
+
+    s "{color=#818589}{i}Les agradecemos su preferencia{/i}{/color}"
+
+    s "{color=#818589}{i}y recuerden que este puede ser su viaje final... así que usen sus cinturones en todo momento.{/i}{/color}"
+
+    l Sorpresa "(Este anuncio es raro, es la primera vez en todo el viaje que Sirius realiza un comentario así.)"
+
+    scene Negro with dissolve
+
+    play music "audio/music/ES_Hidden Beneath - Rikard From.mp3" fadein 1.5 loop
+
+    "HAS LLEGADO AL FINAL DE LA DEMO DE EL ÚLTIMO PASAJERO"
+
+    "Este es solo el comienzo del viaje de Layla."
+
+    "Aún quedan verdades que enfrentar… y heridas que sanar."
+
+    "Gracias por jugar."
 
     return
