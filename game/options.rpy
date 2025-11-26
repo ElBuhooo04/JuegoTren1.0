@@ -19,7 +19,7 @@ define config.name = _("JuegoTren")
 ## Determina si el título dado más arriba se muestra en el menú principal.
 ## Ajústalo a 'False' para ocultar el título.
 
-define gui.show_name = True
+define gui.show_name = False
 
 
 ## Versión del juego.
@@ -62,7 +62,7 @@ define config.has_voice = True
 ## en el menú principal. Este archivo seguirá sonando en el juego hasta que sea
 ## detenido o se reproduzca otro archivo.
 
-# define config.main_menu_music = "main-menu-theme.ogg"
+define config.main_menu_music = "audio/music/ES_JustSadEnough.mp3"
 
 
 ## Transiciones ################################################################

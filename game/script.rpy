@@ -49,6 +49,10 @@ init:
 
     image Nadia Normal = "images/Nadia/Nadia Normal.PNG"
 
+    image Arnold Normal = "images/Arnold/Arnold normal.PNG"
+    image Arnold Feliz = "images/Arnold/Arnold feliz.PNG"
+    image Arnold Refeliz = "images/Arnold/Arnold muyfeliz.PNG"
+
 init:
     transform my_shake:
         linear 0.1 xoffset -2 yoffset 2 
@@ -186,6 +190,8 @@ label start:
 
     l "(Me pongo a mirar por la ventana, todo se ve muy vacío, al parecer la multitud ya se dispersó un poco.)"
 
+    show Arnold Normal with dissolve
+    
     u "Disculpa..."
 
     l Sorpresa "(La voz de una persona desconocida me saca de mis pensamientos. Es un muchacho no mucho mayor que yo.)"
@@ -198,9 +204,13 @@ label start:
 
     l Sorpresa "(Sorprendentemente sí era una persona conocida, asiento con la cabeza y me sonríe.)"
 
+    show Arnold Feliz
+
     u "¡Lo sabía! Te vi desde que estábamos abordando. No esperaba verte aquí, Soy..."
 
     l Seria "(Antes de que el muchacho terminara de hablar, empezó a sonar el altavoz.)"
+
+    hide Arnold with dissolve
 
     s "{color=#818589}{i}Bienvenidos al tren #6, gracias por preferirnos por sobre otras líneas.{/i}{/color}"
 
@@ -278,9 +288,13 @@ label op1C:
 label op1D: 
     $ checked_op1D = True
 
+    show Arnold Normal with dissolve
+
     l Seria "(De reojo veo al muchacho sentado enfrente de mi.)"
 
     l "(Parece concentrado en la ventana, pero se ve algo nervioso. No se si deberia sacarle platica y preguntarle qué quería decirme.)"
+
+    hide Arnold with dissolve
 
     jump op1
 
@@ -1087,6 +1101,8 @@ label FINALEND:
 
     l Seria "(Sirius se va y me quedo pensando en las cosas mirando a la ventana. Ya es muy tarde de todos modos.)"
 
+    show Arnold Normal with dissolve
+
     u "Disculpa..."
 
     l "(El pasajero sentado enfrente de mi habla, y recuerdo desde hace un tiempo ha estado queriendo hablarme.)"
@@ -1101,11 +1117,15 @@ label FINALEND:
 
     l "A decir verdad no recuerdo mucho, pero igual pensaba que eras bastante familiar."
 
+    show Arnold Refeliz
+
     a "Es muy curioso volverte a encontrar justo aquí."
 
     a "Este viaje esta siendo muy raro, he estado teniendo unos sueños extraños y..."
 
     l "(Nuestra platica se ve detenida por el ruido del altavoz.)"
+
+    hide Arnold with dissolve
 
     s "{color=#818589}{i}Lamentamos las demoras, seguiremos avanzando.{/i}{/color}"
 
